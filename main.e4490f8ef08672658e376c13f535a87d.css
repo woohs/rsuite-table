@@ -1,4 +1,4 @@
-/*! Last update: Sat Apr 22 2017 20:51:50 GMT+0800 (CST) */
+/*! Last update: Tue Apr 25 2017 21:50:33 GMT+0800 (CST) */
 /**灰色色阶为公用颜色**/
 /**主题**/
 .rsuite-table {
@@ -46,6 +46,30 @@
 .rsuite-table .rsuite-table-body-row-wrapper {
   position: relative;
   overflow: auto;
+}
+.rsuite-table .rsuite-table-body-row-wrapper::-webkit-scrollbar {
+  width: 7px;
+  height: 9px;
+}
+.rsuite-table .rsuite-table-body-row-wrapper::-webkit-scrollbar-track {
+  background-color: #f5f5f5;
+  border-left: 2px solid transparent;
+}
+.rsuite-table .rsuite-table-body-row-wrapper::-webkit-scrollbar-track:hover {
+  background-color: #f1f1f1;
+}
+.rsuite-table .rsuite-table-body-row-wrapper::-webkit-scrollbar-thumb {
+  background-color: #bababa;
+  border-left: 2px solid transparent;
+}
+.rsuite-table .rsuite-table-body-row-wrapper::-webkit-scrollbar-thumb:hover {
+  background-color: #a6a6a6;
+}
+.rsuite-table .rsuite-table-body-row-wrapper::-webkit-scrollbar-thumb:active {
+  background-color: #999;
+}
+.rsuite-table .rsuite-table-body-row-wrapper::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(0, 0, 0, 0.1);
 }
 .rsuite-table .rsuite-table-body-row-wrapper .rsuite-table-body-info {
   width: 100%;

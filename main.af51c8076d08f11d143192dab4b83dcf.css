@@ -1,4 +1,4 @@
-/*! Last update: Sun Jun 25 2017 14:44:19 GMT+0800 (CST) */
+/*! Last update: Mon Jun 26 2017 13:07:43 GMT+0800 (CST) */
 /**灰色色阶为公用颜色**/
 /**主题**/
 .rsuite-table {
@@ -193,7 +193,6 @@
 }
 .rsuite-table .rsuite-table-scrollbar-wrapper.horizontal .scrollbar-handle {
   height: 8px;
-  width: 100px;
   left: 0px;
   top: 1px;
 }
@@ -201,10 +200,10 @@
   top: 0;
   right: 0px;
   width: 10px;
-  bottom: 0;
+  bottom: 2px;
 }
 .rsuite-table .rsuite-table-scrollbar-wrapper.vertical .scrollbar-handle {
-  height: 100px;
+  min-height: 20px;
   width: 8px;
   top: 0px;
   left: 1px;

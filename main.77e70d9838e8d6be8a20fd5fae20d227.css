@@ -1,4 +1,4 @@
-/*! Last update: Tue Jul 11 2017 16:17:29 GMT+0800 (CST) */
+/*! Last update: Tue Jul 18 2017 11:57:43 GMT+0800 (CST) */
 /**灰色色阶为公用颜色**/
 /**主题**/
 .rsuite-table {
@@ -183,7 +183,7 @@
   content: "\F0D7";
 }
 .rsuite-table .rsuite-table-scrollbar-wrapper {
-  background: rgba(45, 45, 45, 0);
+  background: rgba(45, 45, 45, 0.05);
   position: absolute;
   transition: background 1s;
 }
@@ -203,6 +203,16 @@
   height: 10px;
   bottom: 2px;
 }
+.rsuite-table .rsuite-table-scrollbar-wrapper.horizontal:hover,
+.rsuite-table .rsuite-table-scrollbar-wrapper.horizontal.active {
+  height: 14px;
+  box-shadow: 1px 1px 2px #ddd inset;
+}
+.rsuite-table .rsuite-table-scrollbar-wrapper.horizontal:hover .scrollbar-handle,
+.rsuite-table .rsuite-table-scrollbar-wrapper.horizontal.active .scrollbar-handle {
+  top: 2px;
+  height: 10px;
+}
 .rsuite-table .rsuite-table-scrollbar-wrapper.horizontal .scrollbar-handle {
   height: 8px;
   left: 0px;
@@ -213,6 +223,16 @@
   right: 0px;
   width: 10px;
   bottom: 2px;
+}
+.rsuite-table .rsuite-table-scrollbar-wrapper.vertical:hover,
+.rsuite-table .rsuite-table-scrollbar-wrapper.vertical.active {
+  width: 14px;
+  box-shadow: 1px 1px 2px #ddd inset;
+}
+.rsuite-table .rsuite-table-scrollbar-wrapper.vertical:hover .scrollbar-handle,
+.rsuite-table .rsuite-table-scrollbar-wrapper.vertical.active .scrollbar-handle {
+  left: 2px;
+  width: 10px;
 }
 .rsuite-table .rsuite-table-scrollbar-wrapper.vertical .scrollbar-handle {
   min-height: 20px;

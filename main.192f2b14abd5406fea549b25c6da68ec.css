@@ -1,6 +1,8 @@
-/*! Last update: Tue Aug 22 2017 13:20:51 GMT+0800 (CST) */
-/**灰色色阶为公用颜色**/
-/**主题**/
+/*! Last update: Wed Aug 23 2017 22:28:12 GMT+0800 (CST) */
+.rsuite {
+  /**灰色色阶为公用颜色**/
+  /**主题**/
+}
 .rsuite-table {
   border: 1px solid #eee;
   position: relative;
@@ -13,17 +15,17 @@
   -ms-user-select: none;
   user-select: none;
 }
-.rsuite-table .rsuite-table-sortable {
+.rsuite-table-sortable {
   position: absolute;
 }
-.rsuite-table .rsuite-table-sortable .icon-sort {
+.rsuite-table-sortable .icon-sort {
   color: #aaa;
 }
-.rsuite-table .rsuite-table-sortable .icon-sort-asc,
-.rsuite-table .rsuite-table-sortable .icon-sort-desc {
+.rsuite-table-sortable .icon-sort-asc,
+.rsuite-table-sortable .icon-sort-desc {
   color: #0ae;
 }
-.rsuite-table .rsuite-table-row {
+.rsuite-table-row {
   overflow: hidden;
   position: absolute;
   height: 36px;
@@ -31,13 +33,13 @@
   top: 0;
   border-bottom: 1px solid #eee;
 }
-.rsuite-table .rsuite-table-row:hover {
+.rsuite-table-row:hover {
   background: #f5f5f5;
 }
-.rsuite-table .rsuite-table-row:hover .rsuite-table-cell-group {
+.rsuite-table-row:hover .rsuite-table-cell-group {
   background: #f5f5f5;
 }
-.rsuite-table .rsuite-table-row:hover .rsuite-table-cell {
+.rsuite-table-row:hover .rsuite-table-cell {
   background: #f5f5f5;
 }
 .rsuite-table.table-hover .rsuite-table-row-header {
@@ -52,16 +54,16 @@
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.28);
   z-index: 5;
 }
-.rsuite-table .rsuite-table-header-row-wrapper {
+.rsuite-table-header-row-wrapper {
   z-index: 2;
   position: relative;
 }
-.rsuite-table .rsuite-table-body-row-wrapper {
+.rsuite-table-body-row-wrapper {
   position: relative;
   overflow: hidden;
   z-index: 0;
 }
-.rsuite-table .rsuite-table-body-row-wrapper .rsuite-table-body-info {
+.rsuite-table-body-info {
   width: 100%;
   text-align: center;
   top: 50%;
@@ -69,17 +71,20 @@
   margin-top: -20px;
   line-height: 40px;
 }
-.rsuite-table .rsuite-table-body-row-wrapper .rsuite-table-body-info .icon {
+.rsuite-table-body-info .icon {
   margin: 0 10px;
 }
-.rsuite-table .rsuite-table-body-row-wrapper .rsuite-table-loading-wrapper {
+.rsuite-table-body-info-wheel-area {
+  width: 100%;
+}
+.rsuite-table-loading-wrapper {
   position: absolute;
   height: 100%;
   width: 100%;
   background: rgba(45, 45, 45, 0.5);
   color: #fff;
 }
-.rsuite-table .rsuite-table-body-row-wrapper .rsuite-table-loading {
+.rsuite-table-loading {
   width: 100%;
   text-align: center;
   top: 50%;
@@ -87,13 +92,10 @@
   margin-top: -20px;
   line-height: 40px;
 }
-.rsuite-table .rsuite-table-body-row-wrapper .rsuite-table-loading .icon {
+.rsuite-table-loading .icon {
   margin: 0 10px;
 }
-.rsuite-table .rsuite-table-body-row-wrapper .rsuite-table-body-wheel-area {
-  width: 100%;
-}
-.rsuite-table .rsuite-table-cell {
+.rsuite-table-cell {
   height: 36px;
   border-style: solid;
   border-width: 0 1px 0 0;
@@ -104,23 +106,23 @@
   white-space: normal;
   background: #fff;
 }
-.rsuite-table .rsuite-table-cell.sortable {
+.rsuite-table-cell.sortable {
   cursor: pointer;
 }
-.rsuite-table .rsuite-table-cell.first {
+.rsuite-table-cell.first {
   border-left-width: 0;
 }
-.rsuite-table .rsuite-table-cell .rsuite-table-cell-wrap1 {
+.rsuite-table-cell-wrap1 {
   display: table;
 }
-.rsuite-table .rsuite-table-cell .rsuite-table-cell-wrap2 {
+.rsuite-table-cell-wrap2 {
   display: table-row;
 }
-.rsuite-table .rsuite-table-cell .rsuite-table-cell-wrap3 {
+.rsuite-table-cell-wrap3 {
   display: table-cell;
   vertical-align: middle;
 }
-.rsuite-table .rsuite-table-cell .rsuite-table-cell-content {
+.rsuite-table-cell-content {
   padding: 8px;
   overflow: hidden;
   white-space: nowrap;
@@ -129,27 +131,28 @@
   -o-text-overflow: ellipsis;
   width: 100%;
 }
-.rsuite-table .rsuite-table-column-resize-spanner {
+.rsuite-table-column-resize-spanner {
   height: 36px;
   width: 6px;
   z-index: 3;
   position: absolute;
-  cursor: ew-resize;
+  cursor: ew-resize !important;
+  outline: none;
 }
-.rsuite-table .rsuite-table-column-resize-spanner:hover {
+.rsuite-table-column-resize-spanner:hover {
   background: #004889;
 }
-.rsuite-table .rsuite-table-cell-group.fixed {
+.rsuite-table-cell-group.fixed {
   position: absolute;
   z-index: 4;
   background: #fff;
 }
-.rsuite-table .rsuite-table-cell-group.shadow {
+.rsuite-table-cell-group.shadow {
   -moz-box-shadow: 3px 0px 5px rgba(9, 9, 9, 0.08);
   -webkit-box-shadow: 3px 0px 5px rgba(9, 9, 9, 0.08);
   box-shadow: 3px 0px 5px rgba(9, 9, 9, 0.08);
 }
-.rsuite-table .rsuite-table-mouse-area {
+.rsuite-table-mouse-area {
   display: none;
   background: #004889;
   left: -1px;
@@ -162,21 +165,21 @@
   background: #f5f5f5;
   padding: 10px;
 }
-.rsuite-table-pagination-wrapper .rsuite-table-length-menu {
+.rsuite-table-length-menu {
   display: inline-block;
   margin-left: 10px;
 }
-.rsuite-table-pagination-wrapper .rsuite-table-page-info {
+.rsuite-table-page-info {
   display: inline-block;
   margin-left: 10px;
 }
-.rsuite-table-pagination-wrapper .rsuite-table-pagination {
+.rsuite-table-pagination {
   float: right;
 }
-.rsuite-table-pagination-wrapper .rsuite-table-pagination .pagination {
+.rsuite-table-pagination .pagination {
   margin: 0;
 }
-.rsuite-table-pagination-wrapper .rsuite-table-pagination .disabled a {
+.rsuite-table-pagination .disabled a {
   background: #f5f5f5;
   border-color: #f5f5f5;
   color: #999;
@@ -187,6 +190,7 @@
 .rsuite-table-treetable .rsuite-table-row .expand-icon {
   width: 10px;
   cursor: pointer;
+  outline: none;
 }
 .rsuite-table-treetable .rsuite-table-row .expand-icon:before {
   content: "\F0DA";
@@ -200,59 +204,59 @@
 .rsuite-table-treetable .open > .rsuite-table-row .expand-icon:before {
   content: "\F0D7";
 }
-.rsuite-table .rsuite-table-scrollbar-wrapper {
+.rsuite-table-scrollbar-wrapper {
   background: rgba(45, 45, 45, 0.05);
   position: absolute;
   transition: background 1s;
 }
-.rsuite-table .rsuite-table-scrollbar-wrapper.active {
+.rsuite-table-scrollbar-wrapper.active {
   background: rgba(45, 45, 45, 0.1);
 }
-.rsuite-table .rsuite-table-scrollbar-wrapper.hide {
+.rsuite-table-scrollbar-wrapper.hide {
   display: none;
 }
-.rsuite-table .rsuite-table-scrollbar-wrapper .scrollbar-handle {
+.rsuite-table-scrollbar-wrapper .scrollbar-handle {
   position: absolute;
   background: rgba(45, 45, 45, 0.5);
   border-radius: 4px;
 }
-.rsuite-table .rsuite-table-scrollbar-wrapper.horizontal {
+.rsuite-table-scrollbar-wrapper.horizontal {
   width: 100%;
   height: 10px;
   bottom: 2px;
 }
-.rsuite-table .rsuite-table-scrollbar-wrapper.horizontal:hover,
-.rsuite-table .rsuite-table-scrollbar-wrapper.horizontal.active {
+.rsuite-table-scrollbar-wrapper.horizontal:hover,
+.rsuite-table-scrollbar-wrapper.horizontal.active {
   height: 14px;
   box-shadow: 1px 1px 2px #ddd inset;
 }
-.rsuite-table .rsuite-table-scrollbar-wrapper.horizontal:hover .scrollbar-handle,
-.rsuite-table .rsuite-table-scrollbar-wrapper.horizontal.active .scrollbar-handle {
+.rsuite-table-scrollbar-wrapper.horizontal:hover .scrollbar-handle,
+.rsuite-table-scrollbar-wrapper.horizontal.active .scrollbar-handle {
   top: 2px;
   height: 10px;
 }
-.rsuite-table .rsuite-table-scrollbar-wrapper.horizontal .scrollbar-handle {
+.rsuite-table-scrollbar-wrapper.horizontal .scrollbar-handle {
   height: 8px;
   left: 0px;
   top: 1px;
 }
-.rsuite-table .rsuite-table-scrollbar-wrapper.vertical {
+.rsuite-table-scrollbar-wrapper.vertical {
   top: 0;
   right: 0px;
   width: 10px;
   bottom: 2px;
 }
-.rsuite-table .rsuite-table-scrollbar-wrapper.vertical:hover,
-.rsuite-table .rsuite-table-scrollbar-wrapper.vertical.active {
+.rsuite-table-scrollbar-wrapper.vertical:hover,
+.rsuite-table-scrollbar-wrapper.vertical.active {
   width: 14px;
   box-shadow: 1px 1px 2px #ddd inset;
 }
-.rsuite-table .rsuite-table-scrollbar-wrapper.vertical:hover .scrollbar-handle,
-.rsuite-table .rsuite-table-scrollbar-wrapper.vertical.active .scrollbar-handle {
+.rsuite-table-scrollbar-wrapper.vertical:hover .scrollbar-handle,
+.rsuite-table-scrollbar-wrapper.vertical.active .scrollbar-handle {
   left: 2px;
   width: 10px;
 }
-.rsuite-table .rsuite-table-scrollbar-wrapper.vertical .scrollbar-handle {
+.rsuite-table-scrollbar-wrapper.vertical .scrollbar-handle {
   min-height: 20px;
   width: 8px;
   top: 0px;

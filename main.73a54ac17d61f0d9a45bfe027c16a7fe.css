@@ -1,8 +1,4 @@
-/*! Last update: Wed Oct 18 2017 15:21:32 GMT+0800 (CST) */
-.rsuite {
-  /**灰色色阶为公用颜色**/
-  /**主题**/
-}
+/*! Last update: Thu Oct 19 2017 17:52:28 GMT+0800 (CST) */
 .rsuite-table {
   border: 1px solid #eee;
   position: relative;
@@ -140,7 +136,7 @@
   outline: none;
 }
 .rsuite-table-column-resize-spanner:hover {
-  background: #004889;
+  background: #00bcd4;
 }
 .rsuite-table-cell-group.fixed {
   position: absolute;
@@ -154,7 +150,7 @@
 }
 .rsuite-table-mouse-area {
   display: none;
-  background: #004889;
+  background: #00bcd4;
   left: -1px;
   top: 0;
   position: absolute;

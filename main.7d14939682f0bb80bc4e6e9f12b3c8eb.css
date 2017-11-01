@@ -1,4 +1,4 @@
-/*! Last update: Mon Oct 30 2017 16:43:12 GMT+0800 (CST) */
+/*! Last update: Wed Nov 01 2017 12:11:18 GMT+0800 (CST) */
 .rsuite-table {
   border: 1px solid #eee;
   position: relative;
@@ -12,6 +12,7 @@
   user-select: none;
 }
 .rsuite-table-sortable {
+  top: 8px;
   position: absolute;
 }
 .rsuite-table-sortable .icon-sort {
@@ -10610,4 +10611,4 @@ blockquote {
   padding: 10px 0;
 }
 
-/*# sourceMappingURL=main.73a54ac17d61f0d9a45bfe027c16a7fe.css.map*/
+/*# sourceMappingURL=main.7d14939682f0bb80bc4e6e9f12b3c8eb.css.map*/

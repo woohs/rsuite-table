@@ -2,9 +2,9 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import _ from 'lodash';
-import { DOMMouseMoveTracker, addStyle, getOffset, translateDOMPositionXY } from 'dom-lib';
+import { DOMMouseMoveTracker, addStyle, getOffset } from 'dom-lib';
 import { SCROLLBAR_MIN_WIDTH } from './constants';
-import { defaultClassPrefix, getUnhandledProps, prefix } from './utils';
+import { defaultClassPrefix, getUnhandledProps, prefix, translateDOMPositionXY } from './utils';
 
 type Props = {
   vertical?: boolean,
@@ -13,7 +13,8 @@ type Props = {
   className?: string,
   classPrefix?: string,
   onScroll?: Function,
-  onMouseDown?: Function
+  onMouseDown?: Function,
+  updatePosition: (style: Object, x: number, y: number) => void
 };
 
 type Offset = {
@@ -31,6 +32,7 @@ type State = {
 class Scrollbar extends React.PureComponent<Props, State> {
   static defaultProps = {
     classPrefix: defaultClassPrefix('table-scrollbar'),
+    updatePosition: translateDOMPositionXY,
     scrollLength: 1,
     length: 1
   };
@@ -64,7 +66,7 @@ class Scrollbar extends React.PureComponent<Props, State> {
   getMouseMoveTracker() {
     return (
       this.mouseMoveTracker ||
-      new DOMMouseMoveTracker(this.hanldeDragMove, this.hanldeDragEnd, document.body)
+      new DOMMouseMoveTracker(this.handleDragMove, this.handleDragEnd, document.body)
     );
   }
 
@@ -77,7 +79,7 @@ class Scrollbar extends React.PureComponent<Props, State> {
     }, 1);
   }
 
-  hanldeMouseDown = (event: SyntheticMouseEvent<*>) => {
+  handleMouseDown = (event: SyntheticMouseEvent<*>) => {
     const { onMouseDown } = this.props;
 
     this.mouseMoveTracker = this.getMouseMoveTracker();
@@ -88,7 +90,7 @@ class Scrollbar extends React.PureComponent<Props, State> {
     onMouseDown && onMouseDown(event);
   };
 
-  hanldeDragEnd = () => {
+  handleDragEnd = () => {
     this.releaseMouseMoves();
     this.setState({
       handlePressed: false
@@ -109,7 +111,7 @@ class Scrollbar extends React.PureComponent<Props, State> {
   }
 
   updateScrollBarPosition(delta: number, forceDelta?: number) {
-    const { vertical, length, scrollLength } = this.props;
+    const { vertical, length, scrollLength, updatePosition } = this.props;
     const max =
       scrollLength && length
         ? length - Math.max((length / scrollLength) * length, SCROLLBAR_MIN_WIDTH + 2)
@@ -125,9 +127,9 @@ class Scrollbar extends React.PureComponent<Props, State> {
     }
 
     if (vertical) {
-      translateDOMPositionXY(styles, 0, this.scrollOffset);
+      updatePosition(styles, 0, this.scrollOffset);
     } else {
-      translateDOMPositionXY(styles, this.scrollOffset, 0);
+      updatePosition(styles, this.scrollOffset, 0);
     }
 
     addStyle(this.handle, styles);
@@ -140,7 +142,7 @@ class Scrollbar extends React.PureComponent<Props, State> {
     }
   }
 
-  hanldeDragMove = (deltaX: number, deltaY: number, event: SyntheticEvent<*>) => {
+  handleDragMove = (deltaX: number, deltaY: number, event: SyntheticEvent<*>) => {
     const { vertical } = this.props;
 
     if (!this.mouseMoveTracker || !this.mouseMoveTracker.isDragging()) {
@@ -152,7 +154,7 @@ class Scrollbar extends React.PureComponent<Props, State> {
   /**
    * 点击滚动条，然后滚动到指定位置
    */
-  hanldeClick = (event: SyntheticMouseEvent<*>) => {
+  handleClick = (event: SyntheticMouseEvent<*>) => {
     if (this.handle && this.handle.contains(event.target)) {
       return;
     }
@@ -204,14 +206,14 @@ class Scrollbar extends React.PureComponent<Props, State> {
         {...unhandled}
         ref={this.bindBarRef}
         className={classes}
-        onClick={this.hanldeClick}
+        onClick={this.handleClick}
         role="toolbar"
       >
         <div
           ref={this.bindHandleRef}
           className={addPrefix('handle')}
           style={styles}
-          onMouseDown={this.hanldeMouseDown}
+          onMouseDown={this.handleMouseDown}
           role="button"
           tabIndex={-1}
         />

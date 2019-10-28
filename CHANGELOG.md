@@ -1,3 +1,32 @@
+# 3.6.0
+
+- Added support for RTL #101
+
+# 3.5.9
+
+- Fixed scroll position after data update #100
+
+# 3.5.8
+
+- Fixed a rendering error when the column in the table was null #99
+- Fixed a problem with scrolling white screen after changing height #97
+
+# 3.5.7
+
+- Fixed component not re-rendered after `sortType` update.
+- Fix the position of the scroll bar when the height of the table changes
+- Fix validation of merged cells for custom children
+
+# 3.5.6
+
+- Fixed an issue where the scrollbar position was not updated after the data was updated
+
+# 3.5.5
+
+- Fix `expandedRowKeys` not controlled (#90)
+- Support event parameter in `onRowClick` (#89)
+- Custom function parameters in `<Cell>` support `rowIndex` (#88)
+
 # 3.5.4
 
 - Fix `expandedRowKeys` is invalid when rowKey is 0

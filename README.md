@@ -73,7 +73,11 @@ const ImageCell = ({ rowData, dataKey, ...props }) => (
 
   <Column width={100} sort resizable>
     <HeaderCell>Email</HeaderCell>
-    <Cell dataKey="email" />
+    <Cell>
+      {(rowData, rowIndex) => {
+        return <a href={`mailto:${rowData.email}`}>{rowData.email}</a>;
+      }}
+    </Cell>
   </Column>
 
   <Column width={100} resizable>
@@ -105,7 +109,7 @@ const ImageCell = ({ rowData, dataKey, ...props }) => (
 | loading                | boolean                                                            | Show loading                                                                                  |
 | minHeight              | number `(0)`                                                       | Minimum height                                                                                |
 | onExpandChange         | (expanded:boolean,rowData:object)=>void                            | Tree table, the callback function in the expanded node                                        |
-| onRowClick             | (rowData:object)=>void                                             | Click the callback function after the row and return to `rowDate`                             |
+| onRowClick             | (rowData:object, event: SyntheticEvent)=>void                      | Click the callback function after the row and return to `rowDate`                             |
 | onScroll               | (scrollX:object, scrollY:object)=>void                             | Callback function for scroll bar scrolling                                                    |
 | onSortColumn           | (dataKey:string, sortType:string)=>void                            | Click the callback function of the sort sequence to return the value `sortColumn`, `sortType` |
 | renderRowExpanded      | (rowDate?: Object) => React.Node                                   | Customize what you can do to expand a zone                                                    |
@@ -149,6 +153,45 @@ const ImageCell = ({ rowData, dataKey, ...props }) => (
 | dataKey  | string           | Data binding `key`, but also a sort of `key` |
 | rowData  | object           | Row data                                     |
 | rowIndex | number           | Row number                                   |
+
+#### There are three ways to use `<Cell>`, as follows:
+
+- 1.Associate the fields in the data with `dataKey`.
+
+```html
+<Column width="{100}" align="center">
+  <HeaderCell>Name</HeaderCell>
+  <Cell dataKey="name" />
+</Column>
+```
+
+- 2.Customize a `<Cell>`.
+
+```js
+const NameCell = ({ rowData, ...props }) => (
+  <Cell {...props}>
+    <a href={`mailto:${rowData.email}`}>{rowData.name}<a>
+  </Cell>
+);
+
+<Column width={100} align="center">
+  <HeaderCell>Name</HeaderCell>
+  <NameCell />
+</Column>
+```
+
+- 3.Customize functions directly within the `<Cell>`.
+
+```js
+<Column width={100} align="center">
+  <HeaderCell>Name</HeaderCell>
+  <Cell>
+    {(rowData, rowIndex) => {
+      return <a href={`mailto:${rowData.email}`}>{rowData.name}</a>;
+    }}
+  </Cell>
+</Column>
+```
 
 ## Methods
 
